@@ -6,7 +6,6 @@
    * [Files and Locations](installing_revitpythonshell_for_autodesk_revit/files_and_locations.md)
 * [The "Configure" dialog](the_configure_dialog/README.md)
    * [Search Paths](the_configure_dialog/search_paths.md)
-   * [Search Paths](search_paths/README.md)
    * [InitScript, StartupScript](the_configure_dialog/initscript,_startupscript.md)
 * [Predefined variables](predefined_variables/README.md)
 * [Hello World!](hello_world/README.md)
