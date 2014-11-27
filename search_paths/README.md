@@ -1,3 +1,3 @@
 # Search Paths
 
-![The Search Paths Tab](https://www.dropbox.com/s/46g4id199by0689/search-dialog.png?dl=0)
+![The Search Paths Tab](https://www.dropbox.com/s/46g4id199by0689/search-dialog.png)
