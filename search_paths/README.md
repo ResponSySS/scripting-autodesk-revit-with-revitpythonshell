@@ -11,4 +11,4 @@ The search paths will be written to the configuration file (FIXME: link to chapt
 The paths configured in the *Search Paths* tab are added to `sys.path` whenever an interactive shell is opened or an external script is executed.
 
 * FIXME: rename the dialog to *Configure* or *Preferences*
-* FIXME: 
+* FIXME: rename the *Commands* tab to *external scripts* (or come up with a better name...)
