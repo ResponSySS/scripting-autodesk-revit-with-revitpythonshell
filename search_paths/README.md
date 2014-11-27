@@ -8,3 +8,4 @@ The *Add* button opens a dialog that lets you choose a folder to add. You can ed
 
 The search paths will be written to the configuration file (FIXME: link to chapter) when the *Configure Commands* dialog is closed with *Save* - clicking *Cancel* will undo any changes you made.
 
+The paths configured in the *Search Paths* tab are added to `sys.path` whenever an interactive shell is opened or a script is executed.
