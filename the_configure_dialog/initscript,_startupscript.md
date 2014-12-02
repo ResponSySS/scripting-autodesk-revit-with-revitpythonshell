@@ -49,10 +49,24 @@ The *StartupScript* is run when RevitPythonShell is first initialized as part of
 
 Possible, real-world uses for this include:
 
-* creating custom ribbon panels
+* creating custom ribbon panels (e.g. for deploying your addin)
 * starting a web server (see chapter "Webserver example")
 * unattended / "batch" processing of revit files
 
 (FIXME: allow *multiple* StartupScripts and move to separate tab)
 
+The initial *StartupScript* installed with RevitPythonShell looks like this:
 
+```python
+# script that is run when RevitPythonShell starts in the IExternalApplication.Startup event.
+try:
+    # add your code here
+    # ...
+    __window__.Close()  # closes the window 
+except:
+    import traceback       # note: add a python27 library to your search path first!
+    traceback.print_exc()  # helps you debug when things go wrong
+```
+
+The contents of this file sometimes changes from version to version of RevitPythonShell. You can always find the newest version in the repository:
+https://code.google.com/p/revitpythonshell/source/browse/trunk/RevitPythonShell/startup.py
