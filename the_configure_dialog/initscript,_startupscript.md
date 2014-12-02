@@ -43,3 +43,16 @@ __window__ = WindowWrapper(__window__)
 The contents of this file sometimes changes from version to version of RevitPythonShell. You can always find the newest version in the repository:
 https://code.google.com/p/revitpythonshell/source/browse/trunk/RevitPythonShell/init.py
 
+## StartupScript
+
+The *StartupScript* is run when RevitPythonShell is first initialized as part of the `IExternalApplication.OnStartup` event, just after the RevitPythonShell ribbon has been populated. In addition to the standard RevitPythonShell variables available to external scripts, the *StartupScript* has access to `__uiControlledApplication__` the instance of `UIControlledApplication` passed to Revit `IExternalApplication` implementations. 
+
+Possible, real-world uses for this include:
+
+* creating custom ribbon panels
+* starting a web server (see chapter "Webserver example")
+* unattended / "batch" processing of revit files
+
+(FIXME: allow *multiple* StartupScripts and move to separate tab)
+
+
