@@ -19,7 +19,7 @@
    * [Creating the Installer](deploying_rpsaddins/creating_the_installer)
    * Frequently Asked Questions
    * Examples / Cookbook
-* [Using the StartupScript to modify the RibbonPanel](using_the_startupscript_to_modify_the_ribbonpanel/README)
+* [Using the StartupScript to modify the RibbonPanel](using_the_startupscript_to_modify_the_ribbonpanel/README.md)
 * [Limitations of the non-modal Shell](limitations_of_the_non-modal_shell/README)
 * [Frequently Asked Questions](frequently_asked_questions/README)
 * [Chapter](chapter/README)
