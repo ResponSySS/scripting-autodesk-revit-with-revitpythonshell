@@ -21,3 +21,5 @@ The `__vars__` dictionary can be written to and the values written are persisted
 
 ![writing to __vars__](https://dl.dropboxusercontent.com/u/8112069/scripting-autodesk-revit-with-revitpythonshell/variables.png)
 
+A use case for this could be setting up default values on the first run of your script. Another use case in conjunction with the *StartupScript* is to use the `__vars__` dictionary to store "loop" data for a shell script that starts Revit and thus the *StartupScript*, which uses the state saved in `__vars__` to batch process a Revit file and save new state before shutting down Revit in a loop.
+
