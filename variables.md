@@ -10,7 +10,7 @@ Use the *Add* button to add a new value to the list. You should see a new entry 
 
 The main advantage of using the variables system is that it provides a way to specify configuration for scripts. By using the `__vars__` dictionary to request paths, port numbers or anything else that might change from one machine to another and needs to be configured by the user.
 
-
+The `__vars__` dictionary can be written to and the values written are persisted between RevitPythonShell sessions in the RevitPythonShell configuration file:
 
 ```python
 >>> __vars__['foo'] = 'bar'
@@ -18,4 +18,6 @@ The main advantage of using the variables system is that it provides a way to sp
 'bar'
 >>>
 ```
+
+![writing to __vars__](https://dl.dropboxusercontent.com/u/8112069/scripting-autodesk-revit-with-revitpythonshell/variables.png)
 
