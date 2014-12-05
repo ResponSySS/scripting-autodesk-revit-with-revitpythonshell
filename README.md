@@ -6,7 +6,7 @@ Features:
 * Syntax highlighting
 * full access to the Revit API
 * export RevitPythonShell scripts as standalone-addins
-* 
+* access to the *batteries included* python standard library as well as the .NET framework - mix the best of both worlds
 
 
 Brainstorming chapters / sections:
