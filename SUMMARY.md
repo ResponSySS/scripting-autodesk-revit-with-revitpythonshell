@@ -16,7 +16,7 @@
 * [Connecting to a SQLite database](connecting_to_a_sqlite_database/README.md)
 * [Webserver example](webserver_example/README.md)
 * [Deploying RpsAddins](deploying_rpsaddins/README)
-   * [What is a RpsAddin](deploying_rpsaddins/what_is_a_rpsaddin)
+   * [What is a RpsAddin](deploying_rpsaddins/what_is_a_rpsaddin.md)
    * [Creating the Installer](deploying_rpsaddins/creating_the_installer)
    * Frequently Asked Questions
    * Examples / Cookbook
