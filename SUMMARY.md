@@ -18,8 +18,8 @@
 * [Deploying RpsAddins](deploying_rpsaddins/README)
    * [What is a RpsAddin](deploying_rpsaddins/what_is_a_rpsaddin.md)
    * [Creating the Installer](deploying_rpsaddins/creating_the_installer.md)
-   * Examples / Cookbook
 * [Using the StartupScript to modify the RibbonPanel](using_the_startupscript_to_modify_the_ribbonpanel/README.md)
+* Examples / Cookbook
 * Frequently Asked Questions
 * [Limitations of the non-modal Shell](limitations_of_the_non-modal_shell/README)
 * [Frequently Asked Questions](frequently_asked_questions/README)
