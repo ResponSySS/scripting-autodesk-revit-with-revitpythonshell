@@ -12,6 +12,8 @@ Features:
 
 Brainstorming chapters / sections:
 
+* go through the Revit API examples, translating them
+* Contribute (tell people how to get in contact with bug fixes and new features from the community)
 * including python libraries
 * InitScript with src attribute
 * can we have multiple StartupScripts?
