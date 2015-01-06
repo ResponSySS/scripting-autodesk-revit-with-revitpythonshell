@@ -13,3 +13,11 @@ The RevitPythonShell installer creates the following folders:
   * `%APPDATA%\RevitPythonShell2015`, with `%APPDATA%` being a system variable that normally points to the `AppData\Roaming` subfolder of your user directory.
   * note: you can enter `%APPDATA%\RevitPythonShell2015` in the Windows Explorer and you will be taken directly to the correct folder. You can even `cd` there on the command line!
 
+Also, it adds an addin manifest file to `%APPDATA%\Autodesk\Revit\2015` called `RevitPythonShell2015` that tells Revit to load the plugin on startup. You can read more about 
+
+## Contents of the Application Folder
+
+The application folder contains the code required to run RevitPythonShell as a 
+
+## Contents of the Data Folder
+
