@@ -10,4 +10,6 @@ The RevitPythonShell installer creates the following folders:
   * defaults to `C:\Program Files (x86)\RevitPythonShell2015` on most systems
   * note: the `2015` portion means that this is the version for Autodesk Revit 2015 - other versions will differ accordingly
 * the *data folder*
+  * `%APPDATA%\RevitPythonShell2015`, with `%APPDATA%` being a system variable that normally points to the `AppData\Roaming` subfolder of your user directory.
+  * note: you can enter `%APPDATA%\RevitPythonShell2015` in the Windows Explorer and you will be taken directly to the correct folder. You can even `cd` there on the command line!
 
