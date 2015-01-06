@@ -1,7 +1,7 @@
 # Summary
 
 * [Introduction](README.md)
-   * [Where to learn Python](where_to_learn_python)
+   * [Where to learn Python](where_to_learn_python.md)
 * [Installing RevitPythonShell for Autodesk Revit](installing_revitpythonshell_for_autodesk_revit/README.md)
    * [Files and Locations](installing_revitpythonshell_for_autodesk_revit/files_and_locations.md)
 * [The "Configure" dialog](the_configure_dialog/README.md)
