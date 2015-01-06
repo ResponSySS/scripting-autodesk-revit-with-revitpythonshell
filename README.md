@@ -12,6 +12,8 @@ Features:
 
 Brainstorming chapters / sections:
 
+* mention places to learn about Revit API programming (The Building Coder)
+* mention guides to convert c# code to IronPython
 * go through the Revit API examples, translating them
 * Contribute (tell people how to get in contact with bug fixes and new features from the community)
 * including python libraries
