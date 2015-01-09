@@ -18,6 +18,7 @@
 * [Deploying RpsAddins](deploying_rpsaddins/README.md)
    * [What is a RpsAddin](deploying_rpsaddins/what_is_a_rpsaddin.md)
    * [What happens when deploying an RpsAddin](what_happens_when_deploying_an_rpsaddin.md)
+   * [Creating the RpsAddin manifest](deploying_rpsaddins/creating_the_rpsaddin_manifest.md)
    * [Creating the Installer](deploying_rpsaddins/creating_the_installer.md)
 * [Using the StartupScript to modify the RibbonPanel](using_the_startupscript_to_modify_the_ribbonpanel/README.md)
 * Examples / Cookbook
