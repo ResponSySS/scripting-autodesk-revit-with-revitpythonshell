@@ -15,7 +15,7 @@
 * [Using Linq in IronPython](using_linq_in_ironpython/README.md)
 * [Connecting to a SQLite database](connecting_to_a_sqlite_database/README.md)
 * [Webserver example](webserver_example/README.md)
-* [Deploying RpsAddins](deploying_rpsaddins/README)
+* [Deploying RpsAddins](deploying_rpsaddins/README.md)
    * [What is a RpsAddin](deploying_rpsaddins/what_is_a_rpsaddin.md)
    * [What happens when deploying an RpsAddin](what_happens_when_deploying_an_rpsaddin.md)
    * [Creating the Installer](deploying_rpsaddins/creating_the_installer.md)
