@@ -2,3 +2,12 @@
 
 A sample RpsAddin manifest looks like this:
 
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<RpsAddin>
+  <RibbonPanel text="Hello World">
+    <!-- the script is always searched relative to the location of the RpsAddin xml file -->
+    <PushButton text="Hello World!" script="helloworld.py"/>
+  </RibbonPanel>
+</RpsAddin>
+```
