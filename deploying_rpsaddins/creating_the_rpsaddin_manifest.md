@@ -21,4 +21,15 @@ Let's look at the various parts of the manifest:
   * `text`: the `text` attribute contains the text of the resulting ribbon panel 
   * `<PushButton>`: each ribbon panel may have one or more push buttons. Each such push button has a `text` attribute that is displayed in the interface and a `src` attribute that is the path (either absolute or relative to the RpsAddin manifest file) to the external script being configured.
 
+You can also add a `StartupScript` that will be run when the RpsAddin is loaded by Revit at startup:
 
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<RpsAddin>
+  <StartupScript src="good_morning_world.py"/>
+  <RibbonPanel text="Hello World">
+    <!-- the script is always searched relative to the location of the RpsAddin xml file -->
+    <PushButton text="Hello World!" src="helloworld.py"/>
+  </RibbonPanel>
+</RpsAddin>
+```
