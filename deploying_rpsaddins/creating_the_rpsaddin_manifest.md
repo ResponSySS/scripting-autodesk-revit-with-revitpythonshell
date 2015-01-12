@@ -21,7 +21,7 @@ Let's look at the various parts of the manifest:
   * `text`: the `text` attribute contains the text of the resulting ribbon panel 
   * `<PushButton>`: each ribbon panel may have one or more push buttons. Each such push button has a `text` attribute that is displayed in the interface and a `src` attribute that is the path (either absolute or relative to the RpsAddin manifest file) to the external script being configured.
 
-You can also add a `StartupScript` that will be run when the RpsAddin is loaded by Revit at startup:
+You can also add a *StartupScript* that will be run when the RpsAddin is loaded by Revit at startup:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -33,3 +33,5 @@ You can also add a `StartupScript` that will be run when the RpsAddin is loaded 
   </RibbonPanel>
 </RpsAddin>
 ```
+
+You could even create an RpsAddin manifest file without any push buttons at all and just use the *StartupScript* to create the user interface on the Revit ribbon. See "Using the StartupScript to modify the RibbonPanel" on how to do this. Note that if you do this, the scripts won't be automatically added to the resulting RpsAddin dll, but you can use the
