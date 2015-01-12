@@ -11,7 +11,7 @@ Features:
 
 
 Brainstorming chapters / sections:
-
+* Ideas for chapters could include interface creation (I use winforms, but this opens a whole other realm - I find I spend more time coding the interface than I do manipulating the database!), and a whole lot of simple examples (geometry, revisions, sheet manipulation, family placement, family purging/renaming) etc.
 * mention places to learn about Revit API programming (The Building Coder)
   * [The Revit API Developers Guide](http://help.autodesk.com/cloudhelp/2015/ENU/Revit-API/files/GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42.htm)
 * mention guides to convert c# code to IronPython
