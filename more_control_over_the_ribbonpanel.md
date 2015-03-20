@@ -4,11 +4,11 @@ This post explains how to exert more control over the items shown in the RibbonP
 
 The default behaviour of RevitPythonShell for external scripts is to group them into split buttons  and place the remaining scripts in stacks of up to three. External scripts that are assigned the same “Group” value are placed together in a split button - in the example below, the external scripts “Button five”, “Button six” and “Button seven” are all assigned the group value “Group 5-7”.
 
-![enter image description here](https://dl.dropboxusercontent.com/u/8112069/darenatwork/2015.03.18_Configure_RevitPythonShell.png "Configuring external scripts")
+![Configuring external scripts](https://dl.dropboxusercontent.com/u/8112069/darenatwork/2015.03.18_Configure_RevitPythonShell.png "Configuring external scripts")
 
 After saving your changes, you need to restart Revit to see any changes. The Ribbon will  then include this panel:
 
-![enter image description here](https://dl.dropboxusercontent.com/u/8112069/darenatwork/2015.02.27_Ribbon_Panel.png "External scripts in Ribbon panel")
+![External scripts in Ribbon panel](https://dl.dropboxusercontent.com/u/8112069/darenatwork/2015.02.27_Ribbon_Panel.png "External scripts in Ribbon panel")
 
 This is fine for collecting your personal scripts and while developing new scripts. When it comes to publishing a plugin (even inside your organization) you might want more control of how the buttons appear.
 
@@ -74,7 +74,7 @@ The script (and all following scripts in this post) assumes you have the directo
 
 Adding `simple_ribbon.py` as your startup script will result in a new ribbon panel added to RPS: 
 
-![enter image description here](https://dl.dropboxusercontent.com/u/8112069/darenatwork/2015.03.05_simple_ribbon.png "simple_ribbon.py output")
+![simple_ribbon.py output](https://dl.dropboxusercontent.com/u/8112069/darenatwork/2015.03.05_simple_ribbon.png "simple_ribbon.py output")
 
 When clicked, you will be greeted as expected.
 
@@ -88,7 +88,7 @@ Adding a panel to the ribbon and adding a push button to the panel is basically 
 
 This produces a Ribbon panel that looks like this:
 
-![enter image description here](https://dl.dropboxusercontent.com/u/8112069/darenatwork/2015.03.19_simple_ribbon_with_icon.png "simple ribbon with icon")
+![simple ribbon with icon](https://dl.dropboxusercontent.com/u/8112069/darenatwork/2015.03.19_simple_ribbon_with_icon.png "simple ribbon with icon")
 
 As far as I can tell, you only really need to set the `LargeImage` property of the `PushButtonData` object - the `Image` property seems to be an atavism from an ancient version of Revit...
 
