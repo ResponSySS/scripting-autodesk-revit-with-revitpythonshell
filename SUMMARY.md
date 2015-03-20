@@ -25,5 +25,5 @@
 * Frequently Asked Questions
 * [Limitations of the non-modal Shell](limitations_of_the_non-modal_shell/README.md)
 * [Frequently Asked Questions](frequently_asked_questions/README.md)
-* More control over the RibbonPanel
+* [More control over the RibbonPanel](more_control_over_the_ribbonpanel.md)
 
