@@ -23,6 +23,6 @@
 * [Using the StartupScript to modify the RibbonPanel](using_the_startupscript_to_modify_the_ribbonpanel/README.md)
 * Examples / Cookbook
 * Frequently Asked Questions
-* [Limitations of the non-modal Shell](limitations_of_the_non-modal_shell/README)
+* [Limitations of the non-modal Shell](limitations_of_the_non-modal_shell/README.md)
 * [Frequently Asked Questions](frequently_asked_questions/README)
 
