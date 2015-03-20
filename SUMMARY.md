@@ -14,6 +14,7 @@
 * [Creating Geometry](creating_geometry/README.md)
 * [Using Linq in IronPython](using_linq_in_ironpython/README.md)
 * [Connecting to a SQLite database](connecting_to_a_sqlite_database/README.md)
+* [More control over the RibbonPanel](more_control_over_the_ribbonpanel.md)
 * [Webserver example](webserver_example/README.md)
 * [Deploying RpsAddins](deploying_rpsaddins/README.md)
    * [What is a RpsAddin](deploying_rpsaddins/what_is_a_rpsaddin.md)
@@ -24,5 +25,4 @@
 * Frequently Asked Questions
 * [Limitations of the non-modal Shell](limitations_of_the_non-modal_shell/README.md)
 * [Frequently Asked Questions](frequently_asked_questions/README.md)
-* [More control over the RibbonPanel](more_control_over_the_ribbonpanel.md)
 
