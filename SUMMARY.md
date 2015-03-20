@@ -20,7 +20,6 @@
    * [What happens when deploying an RpsAddin](deploying_rpsaddins/what_happens_when_deploying_an_rpsaddin.md)
    * [Creating the RpsAddin manifest](deploying_rpsaddins/creating_the_rpsaddin_manifest.md)
    * [Creating the Installer](deploying_rpsaddins/creating_the_installer.md)
-* [Using the StartupScript to modify the RibbonPanel](using_the_startupscript_to_modify_the_ribbonpanel/README.md)
 * Examples / Cookbook
 * Frequently Asked Questions
 * [Limitations of the non-modal Shell](limitations_of_the_non-modal_shell/README.md)
