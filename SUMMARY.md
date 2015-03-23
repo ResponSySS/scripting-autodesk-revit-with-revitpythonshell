@@ -8,6 +8,7 @@
    * [Search Paths](the_configure_dialog/search_paths.md)
    * [InitScript, StartupScript](the_configure_dialog/initscript,_startupscript.md)
    * [Variables](variables.md)
+   * External scripts
 * [Predefined variables](predefined_variables/README.md)
 * [Hello World!](hello_world/README.md)
 * [Collecting Elements](collecting_elements/README.md)
