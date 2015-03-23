@@ -12,4 +12,8 @@ Use the "Configure" dialog to configure the external scripts. On the "External S
 - a "Group": use a shared group name to add multiple external scripts to a "SplitButton" (see the "Button fixe" example below) or leave this blank to create stacked buttons (like "Button one" etc. in the example below)
 - a "Path": the full path to the python script to be run when the button is clicked.
 
+When you click "Save", you will be reminded to restart Revit in order to show changes to the Ribbon. The reason being, that Revit Add-ins can only manipulate the Ribbon when Revit starts. So. Close Revit and re-open it to see the following panel in your Add-ins section of the Revit Ribbon:
+
 ![The RPS Ribbon panel with external scripts](https://dl.dropboxusercontent.com/u/8112069/darenatwork/2015.02.27_Ribbon_Panel.png)
+
+If you want to create more fancy controls, you should read the section "More control over the Ribbon Panel".
