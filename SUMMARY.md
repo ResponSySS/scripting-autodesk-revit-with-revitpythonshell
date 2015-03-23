@@ -5,7 +5,7 @@
 * [Installing RevitPythonShell for Autodesk Revit](installing_revitpythonshell_for_autodesk_revit/README.md)
    * [Files and Locations](installing_revitpythonshell_for_autodesk_revit/files_and_locations.md)
 * [The "Configure" dialog](the_configure_dialog/README.md)
-   * External scripts
+   * [External scripts](external_scripts.md)
    * [Search Paths](the_configure_dialog/search_paths.md)
    * [InitScript, StartupScript](the_configure_dialog/initscript,_startupscript.md)
    * [Variables](variables.md)
