@@ -35,3 +35,27 @@ Whoa! What is going on here?
 - a web server wrapped in a method `serve_forever` that listens for web requests with the `HttpListener`, stores them into the context queue and notifies the external event that there is work to be done.
 
 We'll look into each component one by one below. Note: The full code can be found here: **(ref: github rps samples)**
+
+Let's start with the ContextQueue:
+
+```python
+class ContextQueue(object):
+    def __init__(self):
+        from System.Collections.Concurrent import ConcurrentQueue
+        self.contexts = ConcurrentQueue[HttpListenerContext]()
+        
+    def __len__(self):
+    return len(self.contexts)
+    
+    def append(swelf, c):
+        self.contexts.Enqueue(c)
+        
+    def popo(self):
+        success, context = self.contexts.TryDequeue()
+        if success:
+            return context
+        else:
+            raise Exception("can't pop an empty ContextQueue!")
+```
+
+This is really nothing speciall - just a thin wrapper arround `ConcurrentQueue` from the .NET library.
