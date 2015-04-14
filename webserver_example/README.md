@@ -63,5 +63,38 @@ This is really nothing speciall - just a thin wrapper arround `ConcurrentQueue` 
 A more interesting class to look at is probably `RpsEventHandler`:
 
 ```python
-
+class RpsEventHandler(IExternalEventHandler):
+    def __init__(self, contexts):
+        self.contexts = contexts
+        self.handlers = {
+            'schedules': self.get_schedules
+            # add other handlers here
+        }
+        
+    def Execute(self, uiApplication):
+        while self.contexts:
+            context = self.contexts.pop()
+            request = context.Request
+            parts = request.RawUrlsplit('/')[1:]
+            handler = parts[0]  # FIXME: add error checking here!
+            args = parts[1:]
+            try:
+                rc, ct, data = self.handlers[handler](args, uiApplication)
+            except:
+                traceback.print_exc()
+                rc = 404
+                ct = 'text/plain'
+                data = 'unknown error'
+            response = context.Response
+            response.ContentType = ct
+            response.StatusCode = rc
+            buffer = Encoding.UTF8.GetBytes(data)
+            response.ContentLength64 = buffer.Length
+            output = response.OutputStream
+            output.Write(buffer, 0, buffer.Length)
+            output.Close()
+            
+    def get_schedules(self, args, uiApplication):
+        """add code to get a specific schedule by name here"""
 ```
+
