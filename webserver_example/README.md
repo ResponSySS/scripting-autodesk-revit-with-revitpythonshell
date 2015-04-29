@@ -94,7 +94,10 @@ class RpsEventHandler(IExternalEventHandler):
             output.Write(buffer, 0, buffer.Length)
             output.Close()
             
-    def get_schedules(self, args, uiApplication):
+    def get_schedules(args, uiApplication):
         """add code to get a specific schedule by name here"""
 ```
 
+The `Execute` method here does the grunt work of working with the .NET libraries and delegating requests to the specific handlers. This class can easily be extended by adding new handlers to it. In fact, you don't even need to extend the class to add handlers - just register them in the `handlers` dictionary.
+
+Each handler takes a list of path elements (roughly split using `/` as a separator) and a UIApplication object that can be used to reference Revit itself. The handler is guaranteed to be running in the Revit API context.
