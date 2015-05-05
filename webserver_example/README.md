@@ -58,7 +58,7 @@ class ContextQueue(object):
             raise Exception("can't pop an empty ContextQueue!")
 ```
 
-This is really nothing speciall - just a thin wrapper arround `ConcurrentQueue` from the .NET library. The `RpsServer` will `append` to the `context` while the `RpsEventHandler` `pop`s the `context`. 
+This is nothing speciall - just a thin wrapper arround `ConcurrentQueue` from the .NET library. The `RpsServer` will `append` to the `context` while the `RpsEventHandler` `pop`s the `context`. 
 
 A more interesting class to look at is probably `RpsEventHandler`:
 
