@@ -12,7 +12,7 @@ One way to solve this is to have Revit act as a web server, say, http://localhos
 curl http://localhost:8080/schedules/my_schedule_name > my_local_file_name.csv
 ```
 
-Let us build a script that allows you to do just that: Export any schedule in the BIM as a CSV file. We'll architect it so that you can add TSV (tab separated values) output or even a `.xls` (Excel) version if you like. And then you can go wild with other outputs. Depending on the URL requested, you could return a screenshot of the current view or ways to open / close documents:
+Let us build a RevitPythonShell script that allows you to do just that: Export any schedule in the BIM as a CSV file through a web service. We'll architect it so that you can add TSV (tab separated values) output or even a `.xls` (Excel) version if you like. And then you can go wild with other outputs. Depending on the URL requested, you could return a screenshot of the current view or ways to open / close documents:
 
 ```
 curl http://localhost:8080/screenshot
@@ -21,7 +21,7 @@ curl http://localhost:8080/open/Desktop/Project1.rvt
 
 This is a variation on the non-modal dialog issue (FIXME: link to jeremy tammiks blog) - we want to run a web server in a separate thread, but have handling requests run in the main Revit thread so that we have access to the API. We will be using an `ExternalEvent` (FIXME: link to docs) to solve this.
 
-The web server itself is based on the .NET `HttpListener` (**ref**) which runs in a separate thread and just polls for new connections. These are then handled by pushing them into a queue and notifying the `ExternalEvent` that a new event has happened. *Uh. I wonder how to present this nicely in a graph...*
+The web server itself uses the `HttpListener` (**ref**) class. which runs in a separate thread and just waits for new connections. These are then handled by pushing them into a queue and notifying the `ExternalEvent` that a new event has happened. *Uh. I wonder how to present this nicely in a graph...*
 
 This is where the script starts:
 
