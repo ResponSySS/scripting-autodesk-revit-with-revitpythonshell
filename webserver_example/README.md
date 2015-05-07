@@ -2,7 +2,7 @@
 
 This is a more elaborate example that shows how to embedd a webserver in Autodesk Revit and use it to automate tasks.
 
-How do you access the BIM from outside Revit? With the Revit API it is rather easy to access the outside world from *within* Revit, but say you wanted to write a shell script that needed to read a schedule from a .rvt document - how would you go about that?
+How do you access the BIM from outside Revit? With the Revit API it is easy to access the outside world from *within* Revit. Sometimes you want to write software that needs to read a schedule from a `.rvt` document - from *outside* of Revit.
 
 Well… one way would be to have Revit act as a web server, say, http://localhost:8080. You could then use curl:
 
