@@ -12,7 +12,7 @@ One way to solve this is to have Revit act as a web server, say, http://localhos
 curl http://localhost:8080/schedules/my_schedule_name.csv > my_local_file_name.csv
 ```
 
-Let us build a script that allows you to do just that: Export any schedule in the BIM as a .csv file. We'll architect it so that you can add a .tsv (tab separated values) output or even a .xls version if you like. And then you can go wild with other outputs - like a screenshot of the current view (think `curl http://localhost:8080/screenshot`) or ways to open / close documents etc.
+Let us build a script that allows you to do just that: Export any schedule in the BIM as a CSV file. We'll architect it so that you can add TSV (tab separated values) output or even a `.xls` (Excel) version if you like. And then you can go wild with other outputs - like a screenshot of the current view (think `curl http://localhost:8080/screenshot`) or ways to open / close documents etc.
 
 This is a variation on the non-modal dialog issue (FIXME: link to jeremy tammiks blog) - we want to run a web server in a separate thread, but have handling requests run in the main Revit thread so that we have access to the API. We will be using an `ExternalEvent` (FIXME: link to docs) to solve this.
 
