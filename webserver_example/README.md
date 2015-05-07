@@ -4,7 +4,9 @@ This is a more elaborate example that shows how to embedd a webserver in Autodes
 
 How do you access the BIM from outside Revit? With the Revit API it is easy to access the outside world from *within* Revit. Sometimes you want to write software that needs to read a schedule from a `.rvt` document - from *outside* of Revit.
 
-Well… one way would be to have Revit act as a web server, say, http://localhost:8080. You could then use curl:
+As an example, say you have a shell script that reads in schedule data from a Revit document and saves it to a CSV file.
+
+One way to solve this is to have Revit act as a web server, say, http://localhost:8080. You could then use curl:
 
 ```
 curl http://localhost:8080/schedules/my_schedule_name.csv > my_local_file_name.csv
