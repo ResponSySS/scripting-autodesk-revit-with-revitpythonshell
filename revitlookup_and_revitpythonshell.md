@@ -1,2 +1,0 @@
-# RevitLookup and RevitPythonShell
-
