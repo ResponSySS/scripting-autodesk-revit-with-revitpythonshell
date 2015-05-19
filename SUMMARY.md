@@ -13,7 +13,7 @@
 * [Hello World!](hello_world/README.md)
 * [Collecting Elements](collecting_elements/README.md)
 * [Creating Geometry](creating_geometry/README.md)
-* RevitLookup and RevitPythonShell
+* [RevitLookup and RevitPythonShell](revitlookup_and_revitpythonshell.md)
 * [Using Linq in IronPython](using_linq_in_ironpython/README.md)
 * [Deploying RpsAddins](deploying_rpsaddins/README.md)
    * [What is a RpsAddin](deploying_rpsaddins/what_is_a_rpsaddin.md)
