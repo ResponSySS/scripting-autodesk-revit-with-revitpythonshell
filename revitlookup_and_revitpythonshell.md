@@ -64,3 +64,17 @@ Select an element in the BIM, start an interactive Python shell and type:
 
 You should see something like this:
 
+![lookup(selection[0])](https://dl.dropboxusercontent.com/u/8112069/scripting-autodesk-revit-with-revitpythonshell/revitlookup_selection.png)
+
+If you don't have RevitLookup installed, you will instead get a message like this:
+
+![lookup(selection[0]) - not installed](https://dl.dropboxusercontent.com/u/8112069/scripting-autodesk-revit-with-revitpythonshell/revitlookup_selection_notinstalled.png)
+
+Typing
+
+```python
+>>> lookup(1157058) # make sure this is a valid ElementId!
+```
+will result in something like this:
+
+![lookup(selection[0]) - not installed](https://dl.dropboxusercontent.com/u/8112069/scripting-autodesk-revit-with-revitpythonshell/revitlookup_int.png)
