@@ -14,6 +14,7 @@
 * [Collecting Elements](collecting_elements/README.md)
 * [Creating Geometry](creating_geometry/README.md)
 * [Using Linq in IronPython](using_linq_in_ironpython/README.md)
+   * RevitLookup and RevitPythonShell
 * [Deploying RpsAddins](deploying_rpsaddins/README.md)
    * [What is a RpsAddin](deploying_rpsaddins/what_is_a_rpsaddin.md)
    * [What happens when deploying an RpsAddin](deploying_rpsaddins/what_happens_when_deploying_an_rpsaddin.md)
