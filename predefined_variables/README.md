@@ -13,6 +13,7 @@ Some of these variables can only be understood in the context of implementing `I
 |`__vars__` | This is a `IDictionary<string, string>` of user defined variables as defined in the configuration  file|
 | `__uiControlledApplication__` | (only for the *StartupScript*) A reference to the `UIControlledApplication`instance.
 | `__window__` | A reference to the current output window. Basically, only `__window__.Close()` is guaranteed to work, but poke around!|
+| `__file__` | External scripts and those deployed with RpsAddin support the `__file__` builtin - the variable contains the full path to the source file being executed. For scripts that are read from a dll (ExternalCommandAssemblyBuilder / RpsAddin) the absolute path to the dll is used as the base directory of the script path (e.g. 'C:\myfolder\myaddin.dll\myscript.py') |
 
 A script that is invoked as a *StartupScript* (when Revit is starting up) has access to the `UIControlledApplication` instance just like regular Revit plugins. You can use this to customize the ribbon for your plugin - this is especially useful when developing self-contained RpsAddins for deployment. See "Using the StartupScript to modify the RibbonPanel" for more information. (FIXME)
 
