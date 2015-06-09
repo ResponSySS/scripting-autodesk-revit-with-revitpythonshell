@@ -52,9 +52,9 @@ class ContextQueue(object):
         self.contexts = ConcurrentQueue[HttpListenerContext]()
         
     def __len__(self):
-    return len(self.contexts)
+        return len(self.contexts)
     
-    def append(swelf, c):
+    def append(self, c):
         self.contexts.Enqueue(c)
         
     def popo(self):
