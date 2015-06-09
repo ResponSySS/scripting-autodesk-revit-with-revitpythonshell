@@ -57,7 +57,7 @@ class ContextQueue(object):
     def append(self, c):
         self.contexts.Enqueue(c)
         
-    def popo(self):
+    def pop(self):
         success, context = self.contexts.TryDequeue()
         if success:
             return context
