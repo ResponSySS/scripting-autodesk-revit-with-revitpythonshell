@@ -82,7 +82,7 @@ class RpsEventHandler(IExternalEventHandler):
         while self.contexts:
             context = self.contexts.pop()
             request = context.Request
-            parts = request.RawUrlsplit('/')[1:]
+            parts = request.RawUrl.split('/')[1:]
             handler = parts[0]  # FIXME: add error checking here!
             args = parts[1:]
             try:
