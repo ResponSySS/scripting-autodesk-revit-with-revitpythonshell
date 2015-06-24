@@ -19,9 +19,11 @@ curl http://localhost:8080/screenshot
 curl http://localhost:8080/open/Desktop/Project1.rvt
 ```
 
-This is a variation on the non-modal dialog issue (FIXME: link to jeremy tammiks blog) - we want to run a web server in a separate thread, but have handling requests run in the main Revit thread so that we have access to the API. We will be using an `ExternalEvent` (FIXME: link to docs) to solve this.
+This is a variation on the [non-modal dialog issue](http://thebuildingcoder.typepad.com/blog/2010/04/asynchronous-api-calls-and-idling.html) ([see here too!](http://thebuildingcoder.typepad.com/blog/2013/12/replacing-an-idling-event-handler-by-an-external-event.html)). We want to run a web server in a separate thread, but have handling requests run in the main Revit thread so that we have access to the API. We will be using an ["external event"](http://help.autodesk.com/view/RVT/2016/ENU/?guid=GUID-0A0D656E-5C44-49E8-A891-6C29F88E35C0) to solve this.
 
-The web server itself uses the `HttpListener` (**ref**) class. which runs in a separate thread and just waits for new connections. These are then handled by pushing them into a queue and notifying the `ExternalEvent` that a new event has happened. *Uh. I wonder how to present this nicely in a graph...*
+The web server itself uses the [`HttpListener`](https://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx)class. which runs in a separate thread and just waits for new connections. These are then handled by pushing them into a queue and notifying the `ExternalEvent` that a new event has happened. 
+
+**FIXME: Uh. I wonder how to present this nicely in a graph...**
 
 This is where the script starts:
 
