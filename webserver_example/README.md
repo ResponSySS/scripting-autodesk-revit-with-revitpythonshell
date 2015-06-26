@@ -76,7 +76,7 @@ class RpsEventHandler(IExternalEventHandler):
     def __init__(self, contexts):
         self.contexts = contexts
         self.handlers = {
-            'schedules': self.get_schedules
+            'schedules': get_schedules
             # add other handlers here
         }
         
@@ -102,9 +102,7 @@ class RpsEventHandler(IExternalEventHandler):
             output = response.OutputStream
             output.Write(buffer, 0, buffer.Length)
             output.Close()
-            
-    def get_schedules(args, uiApplication):
-        """add code to get a specific schedule by name here"""
+
 ```
 
 The `Execute` method here does the grunt work of working with the .NET libraries and delegating requests to the specific handlers. You can extend this class can by adding new handlers to it. In fact, you don't even need to extend the class to add handlers - just register them in the `handlers` dictionary.
