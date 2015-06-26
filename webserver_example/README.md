@@ -111,7 +111,7 @@ The `Execute` method here does the grunt work of working with the .NET libraries
 
 Each handler takes a list of path elements and a `UIApplication` object. The handler runs in the Revit API context. It should return an HTTP error code, a content type and a string containing the response.
 
-An example of such a handler (I expect you to write your own and add them to the `handlers`dict!) is `get_schedules`:
+An example of such a handler (I expect you to write your own and add them to the handlers dict!) is `get_schedules`:
 
 ```python
 def get_schedules(args, uiApplication):
