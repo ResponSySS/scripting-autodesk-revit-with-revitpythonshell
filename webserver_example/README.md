@@ -110,3 +110,41 @@ class RpsEventHandler(IExternalEventHandler):
 The `Execute` method here does the grunt work of working with the .NET libraries and delegating requests to the specific handlers. You can extend this class can by adding new handlers to it. In fact, you don't even need to extend the class to add handlers - just register them in the `handlers` dictionary.
 
 Each handler takes a list of path elements and a `UIApplication` object. The handler runs in the Revit API context. It should return an HTTP error code, a content type and a string containing the response.
+
+An example of such a handler (I expect you to write your own and add them to the `handlers`dict!) is `get_schedules`:
+
+```python
+def get_schedules(args, uiApplication):
+    '''add code to get a specific schedule by name here'''
+    print 'inside get_schedules...'
+    from Autodesk.Revit.DB import ViewSchedule
+    from Autodesk.Revit.DB import FilteredElementCollector
+    from Autodesk.Revit.DB import ViewScheduleExportOptions
+    import tempfile, os, urllib
+
+    doc = uiApplication.ActiveUIDocument.Document
+    collector = FilteredElementCollector(doc).OfClass(ViewSchedule)
+    schedules = {vs.Name: vs for vs in list(collector)}
+
+    if len(args):
+        # export a single schedule
+        schedule_name = urllib.unquote(args[0])
+        if not schedule_name.lower().endswith('.csv'):
+            return 302, None, schedule_name + '.csv'
+        schedule_name = schedule_name[:-4]
+        if not schedule_name in schedules.keys():
+            return 404, 'text/plain', 'Schedule not found: %s' % schedule_name
+        schedule = schedules[schedule_name]
+        fd, fpath = tempfile.mkstemp(suffix='.csv')
+        os.close(fd)
+        dname, fname = os.path.split(fpath)
+        opt = ViewScheduleExportOptions()
+        opt.FieldDelimiter = ', '
+        schedule.Export(dname, fname, opt)
+        with open(fpath, 'r') as csv:
+            result = csv.read()
+        os.unlink(fpath)
+        return 200, 'text/csv', result
+    else:
+        return 200, 'text/plain', '\n'.join(schedules.keys())
+```
