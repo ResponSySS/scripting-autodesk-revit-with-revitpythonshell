@@ -111,7 +111,7 @@ The `Execute` method here does the grunt work of working with the .NET libraries
 
 Each handler takes a list of path elements and a `UIApplication` object. The handler runs in the Revit API context. It should return an HTTP error code, a content type and a string containing the response.
 
-An example of such a handler (I expect you to write your own and add them to the handlers dict!) is `get_schedules`:
+An example of such a handler is `get_schedules`:
 
 ```python
 def get_schedules(args, uiApplication):
@@ -130,6 +130,7 @@ def get_schedules(args, uiApplication):
         # export a single schedule
         schedule_name = urllib.unquote(args[0])
         if not schedule_name.lower().endswith('.csv'):
+            # attach a `.csv` to URL for browsers
             return 302, None, schedule_name + '.csv'
         schedule_name = schedule_name[:-4]
         if not schedule_name in schedules.keys():
@@ -146,5 +147,104 @@ def get_schedules(args, uiApplication):
         os.unlink(fpath)
         return 200, 'text/csv', result
     else:
+        # return a list of valid schedule names
         return 200, 'text/plain', '\n'.join(schedules.keys())
 ```
+When you write your own handler functions, make sure to implement the function signature: `rc, ct, data my_handler_function(args, uiApplication`.
+
+In `get_schedules`, a `FilteredElementCollector` is used to find all
+`ViewSchedule` instances in the currently active document. Using a [dict
+comprehension](https://www.python.org/dev/peps/pep-0274/) is a nifty way to quickly make a lookup table for checking the arguments.
+
+The `args` parameter contains the components of the url after the first part,
+which is used to select the handler function. So, if the requested URL were,
+say, `http://localhost:8080/schedules`, then `args` would be an empty list. In
+this case, we just return a list of valid schedule names, one per line - see
+the `else` at the bottom of the function.
+
+If the URL were, say `http://localhost:8080/schedules/My%20Schedule%20Name`,
+then the `args` list would contain a single element, `"My%20Schedule%20Name"`.
+The `%20` encoding is a standard for URLs and is used to encode a space
+character. We use `urllib` to unquote the name.
+
+In order to make the function work nicely with a browser, it is nice to have a
+`.csv` ending to it - we redirect to the same URL with a `.csv` tacked on if it
+is missing! The code for handling the redirect can be found in the [full sample
+script on GitHub](https://github.com/daren-thomas/rps-sample-scripts/blob/master/StartupScripts/RpsHttpServer/rpshttpserver.py).
+Notice how the HTTP return code 302 is used as the return value for `rc` - you
+can [look up all the HTTP return codes
+online](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html), we will only
+be using 200 (OK), 302 (Found - used for redirects) and 404 (Not Found).
+
+Next, the script checks to make sure the schedule name is a valid schedule in the document. A 404 return code is used to indicate an error here. 
+
+The actual code for returning a schedule makes use of a technique described in
+Jeremy Tammik's blog post [The Schedule API and Access to Schedule
+Data](http://thebuildingcoder.typepad.com/blog/2012/05/the-schedule-api-and-access-to-schedule-data.html).
+The `ViewSchedule.Export` method is used to write the schedule to a temporary
+file in CSV format and then read back into memory before deleting the file on
+disk. This is a bit of a hack and coming up with a better solution is left as
+an exercise for the reader...
+
+The last piece in our puzzle is the `RpsServer`:
+
+```python
+class RpsServer(object):
+    def __init__(self, externalEvent, contexts, port=8080):
+        self.port = port
+        self.externalEvent = externalEvent
+        self.contexts = contexts
+
+    def serve_forever(self):
+        try:
+            self.running = True
+            self.listener = HttpListener()
+            prefix = 'http://localhost:%i/' % self.port
+            self.listener.Prefixes.Add(prefix)
+            try:
+                print 'starting listener', prefix
+                self.listener.Start()
+                print 'started listener'
+            except HttpListenerException as ex:
+                print 'HttpListenerException:', ex
+                return
+            waiting = False
+            while self.running:
+                if not waiting:
+                    context = self.listener.BeginGetContext(
+                        AsyncCallback(self.handleRequest),
+                        self.listener)
+                waiting = not context.AsyncWaitHandle.WaitOne(100)
+        except:
+            traceback.print_exc()
+
+    def stop(self):
+        print 'stop()'
+        self.running = False
+        self.listener.Stop()
+        self.listener.Close()
+
+    def handleRequest(self, result):
+        '''
+        pass the request to the RevitEventHandler
+        '''
+        try:
+            listener = result.AsyncState
+            if not listener.IsListening:
+                return
+            try:
+                context = listener.EndGetContext(result)
+            except:
+                # Catch the exception when the thread has been aborted
+                self.stop()
+                return
+            self.contexts.append(context)
+            self.externalEvent.Raise()
+            print 'raised external event'
+        except:
+            traceback.print_exc()
+```
+
+This class implements the `serve_forever` function that starts an
+`HttpListener` on a specified port and uses `handleRequest` to pass any
+requests on to the external event for processing inside the Revit API context.
