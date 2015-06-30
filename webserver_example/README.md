@@ -41,9 +41,9 @@ Whoa! What is going on here?
 - an `IExternalEventHandler` implementation called `RpsEventHandler` that handles producing the output.
 - a web server wrapped in a method `serve_forever` that listens for web requests with the `HttpListener`, stores them into the context queue and notifies the external event that there is work to be done.
 
-We'll look into each component one by one below. Note: The full code can be found here: **(ref: github rps samples)**
+We'll look into each component one by one below. Note: The full code can be found here in the [rps-sample-scripts GitHub repository](https://github.com/daren-thomas/rps-sample-scripts/blob/master/StartupScripts/RpsHttpServer/rpshttpserver.py).
 
-Let's start with the ContextQueue:
+Let's start with the `ContextQueue`:
 
 ```python
 class ContextQueue(object):
@@ -146,14 +146,14 @@ def get_schedules(args, uiApplication):
         # return a list of valid schedule names
         return 200, 'text/plain', '\n'.join(schedules.keys())
 ```
-When you write your own handler functions, make sure to implement the function signature: `rc, ct, data my_handler_function(args, uiApplication`.
+When you write your own handler functions, make sure to implement the function signature: `rc, ct, data my_handler_function(args, uiApplication)`.
 
 In `get_schedules`, a `FilteredElementCollector` is used to find all
 `ViewSchedule` instances in the currently active document. Using a [dict
 comprehension](https://www.python.org/dev/peps/pep-0274/) is a nifty way to quickly make a lookup table for checking the arguments.
 
 The `args` parameter contains the components of the url after the first part,
-which is used to select the handler function. So, if the requested URL were,
+which is used to select the handler function. So if the requested URL were,
 say, `http://localhost:8080/schedules`, then `args` would be an empty list. In
 this case, we just return a list of valid schedule names, one per line - see
 the `else` at the bottom of the function.
@@ -170,7 +170,7 @@ script on GitHub](https://github.com/daren-thomas/rps-sample-scripts/blob/master
 Notice how the HTTP return code 302 is used as the return value for `rc` - you
 can [look up all the HTTP return codes
 online](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html), we will only
-be using 200 (OK), 302 (Found - used for redirects) and 404 (Not Found).
+be using [200 (OK)](https://en.wikipedia.org/wiki/HTTP_200), [302 (Found - used for redirects)](https://en.wikipedia.org/wiki/HTTP_302) and [404 (Not Found)](https://en.wikipedia.org/wiki/HTTP_404).
 
 Next, the script checks to make sure the schedule name is a valid schedule in the document. A 404 return code is used to indicate an error here. 
 
@@ -182,7 +182,7 @@ file in CSV format and then read back into memory before deleting the file on
 disk. This is a bit of a hack and coming up with a better solution is left as
 an exercise for the reader...
 
-The last piece in our puzzle is the `RpsServer`:
+The final piece in our puzzle is the `RpsServer`:
 
 ```python
 class RpsServer(object):
@@ -244,3 +244,5 @@ class RpsServer(object):
 This class implements the `serve_forever` function that starts an
 `HttpListener` on a specified port and uses `handleRequest` to pass any
 requests on to the external event for processing inside the Revit API context.
+
+[Check the rpshttpserver.py example on GitHub.](https://github.com/daren-thomas/rps-sample-scripts/blob/master/StartupScripts/RpsHttpServer/rpshttpserver.py)
