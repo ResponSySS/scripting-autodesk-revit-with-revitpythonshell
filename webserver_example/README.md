@@ -12,18 +12,16 @@ One way to solve this is to have Revit act as a web server, say, http://localhos
 curl http://localhost:8080/schedules/my_schedule_name > my_local_file_name.csv
 ```
 
-Let us build a RevitPythonShell script that allows you to do just that: Export any schedule in the BIM as a CSV file through a web service. We'll architect it so that you can add TSV (tab separated values) output or even a `.xls` (Excel) version if you like. And then you can go wild with other outputs. Depending on the URL requested, you could return a screenshot of the current view or ways to open / close documents:
+Let us build a RevitPythonShell script that allows you to do just that: Export any schedule in the BIM as a CSV file through a web service. Depending on the URL requested, you could return a screenshot of the current view or ways to open / close documents:
 
 ```
 curl http://localhost:8080/screenshot
 curl http://localhost:8080/open/Desktop/Project1.rvt
 ```
 
-This is a variation on the [non-modal dialog issue](http://thebuildingcoder.typepad.com/blog/2010/04/asynchronous-api-calls-and-idling.html) ([see here too!](http://thebuildingcoder.typepad.com/blog/2013/12/replacing-an-idling-event-handler-by-an-external-event.html)). We want to run a web server in a separate thread, but have handling requests run in the main Revit thread so that we have access to the API. We will be using an ["external event"](http://help.autodesk.com/view/RVT/2016/ENU/?guid=GUID-0A0D656E-5C44-49E8-A891-6C29F88E35C0) to solve this.
+This is a variation on the [non-modal dialog issue](http://thebuildingcoder.typepad.com/blog/2010/04/asynchronous-api-calls-and-idling.html) ([see here too!](http://thebuildingcoder.typepad.com/blog/2013/12/replacing-an-idling-event-handler-by-an-external-event.html)). We want to run a web server in a separate thread, but have handling requests run in the main Revit thread so that we have access to the API. We will be using an [external event](http://help.autodesk.com/view/RVT/2016/ENU/?guid=GUID-0A0D656E-5C44-49E8-A891-6C29F88E35C0) to solve this.
 
-The web server itself uses the [`HttpListener`](https://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx)class. which runs in a separate thread and just waits for new connections. These are then handled by pushing them into a queue and notifying the `ExternalEvent` that a new event has happened. 
-
-**FIXME: Uh. I wonder how to present this nicely in a graph...**
+The web server itself uses the [`HttpListener`](https://msdn.microsoft.com/en-us/library/system.net.httplistener.aspx)class, which runs in a separate thread and just waits for new connections. These are then handled by pushing them into a queue and notifying the `ExternalEvent` that a new event has happened. 
 
 This is where the script starts:
 
@@ -39,7 +37,7 @@ def main():
 
 Whoa! What is going on here?
 
-- a communication channel `contexts` is created for sending web requests (stashed as `HttpListenerContext`s) to the server thread to the `ExternalEvent` thread.
+- a communication channel `contexts` is created for sending web requests (stashed as `HttpListenerContext` instances) to the `ExternalEvent` thread.
 - an `IExternalEventHandler` implementation called `RpsEventHandler` that handles producing the output.
 - a web server wrapped in a method `serve_forever` that listens for web requests with the `HttpListener`, stores them into the context queue and notifies the external event that there is work to be done.
 
