@@ -12,7 +12,7 @@ clr.ImportExtensions(System.Linq)
 [2, 3, 4].Where(lambda x: x != 2).ToList().ForEach(System.Console.WriteLine)
 ```
 
-This is not quite the same as the syntactic sugar you might be used to from c#, but could come in handy if you want to use some of the more advanced LINQ methods.
+This is not quite the same as the syntactic sugar you might be used to from c#. It could still come in handy if you want to use some of the more advanced LINQ methods.
 
 BTW: You can also use python list comprehensions for most use cases of LINQ! 
 
