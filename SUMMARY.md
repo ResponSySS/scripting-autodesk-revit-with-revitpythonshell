@@ -13,7 +13,6 @@
 * [Hello World!](hello_world/README.md)
 * [Collecting Elements](collecting_elements/README.md)
 * [Creating Geometry](creating_geometry/README.md)
-* [Using Linq in IronPython](using_linq_in_ironpython/README.md)
 * [Deploying RpsAddins](deploying_rpsaddins/README.md)
    * [What is a RpsAddin](deploying_rpsaddins/what_is_a_rpsaddin.md)
    * [What happens when deploying an RpsAddin](deploying_rpsaddins/what_happens_when_deploying_an_rpsaddin.md)
@@ -27,5 +26,6 @@
 * [Limitations of the non-modal Shell](limitations_of_the_non-modal_shell/README.md)
 * [Frequently Asked Questions](frequently_asked_questions/README.md)
 * [RevitLookup and RevitPythonShell](revitlookup_and_revitpythonshell.md)
+* [Using Linq in IronPython](using_linq_in_ironpython/README.md)
 * IronPython notes
 
