@@ -27,4 +27,5 @@
 * [Limitations of the non-modal Shell](limitations_of_the_non-modal_shell/README.md)
 * [Frequently Asked Questions](frequently_asked_questions/README.md)
 * [RevitLookup and RevitPythonShell](revitlookup_and_revitpythonshell.md)
+* IronPython notes
 
