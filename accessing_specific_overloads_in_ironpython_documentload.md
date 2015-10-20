@@ -35,7 +35,7 @@ What is happening here is that the c# definitions of the method are:
 ```c#
 public bool LoadFamily(
 	string filename
-){/*...*/}
+)
 ```
 and
 ```c#
