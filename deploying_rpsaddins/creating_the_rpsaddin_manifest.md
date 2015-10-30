@@ -34,4 +34,4 @@ You can also add a *StartupScript* that will be run when the RpsAddin is loaded 
 </RpsAddin>
 ```
 
-You could even create an RpsAddin manifest file without any push buttons at all and just use the *StartupScript* to create the user interface on the Revit ribbon. See "Using the StartupScript to modify the RibbonPanel" on how to do this. Note that if you do this, the scripts won't be automatically added to the resulting RpsAddin dll, but you can use the `File` tag to add files to the deployment folder.
+You could even create an RpsAddin manifest file without any push buttons at all and just use the *StartupScript* to create the user interface on the Revit ribbon. See "Using the StartupScript to modify the RibbonPanel" on how to do this. Note that if you do this, the scripts won't be automatically added to the resulting RpsAddin dll. You can use the `File` tag to add files to the output directory. Use the installer to then bundle them up for installation.
