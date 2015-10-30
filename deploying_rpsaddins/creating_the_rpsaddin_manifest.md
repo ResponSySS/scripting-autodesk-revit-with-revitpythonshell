@@ -21,7 +21,25 @@ Let's look at the various parts of the manifest:
   * `text`: the `text` attribute contains the text of the resulting ribbon panel 
   * `<PushButton>`: each ribbon panel may have one or more push buttons. Each such push button has a `text` attribute that is displayed in the interface and a `src` attribute that is the path (either absolute or relative to the RpsAddin manifest file) to the external script being configured.
 
+If you would like to add a `SplitButton`, you can do so like this:
 
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<RpsAddin>
+  <RibbonPanel text="Showing off my SplitButtons">
+    <SplitButton text="SplitButton #1">
+      <!-- the script is always searched relative to the location of the RpsAddin xml file -->
+      <PushButton text="Hello World!" src="helloworld.py"/>
+      <PushButton text="Goodbye cruel World!" src="helloworld.py"/>
+    </SplitButton>
+    <SplitButton text="SplitButton #2">
+      <PushButton text="Gotta go" src="helloworld.py"/>
+      <PushButton text="real fast!" src="helloworld.py"/>
+    </SplitButton>
+    <PushButton text="Enough with the Kindergarten jokes already!" src="helloworld.py"/>
+  </RibbonPanel>
+</RpsAddin>
+```
 
 You can also add a *StartupScript* that will be run when the RpsAddin is loaded by Revit at startup:
 
