@@ -21,6 +21,8 @@ Let's look at the various parts of the manifest:
   * `text`: the `text` attribute contains the text of the resulting ribbon panel 
   * `<PushButton>`: each ribbon panel may have one or more push buttons. Each such push button has a `text` attribute that is displayed in the interface and a `src` attribute that is the path (either absolute or relative to the RpsAddin manifest file) to the external script being configured.
 
+
+
 You can also add a *StartupScript* that will be run when the RpsAddin is loaded by Revit at startup:
 
 ```xml
@@ -34,4 +36,13 @@ You can also add a *StartupScript* that will be run when the RpsAddin is loaded 
 </RpsAddin>
 ```
 
-You could even create an RpsAddin manifest file without any push buttons at all and just use the *StartupScript* to create the user interface on the Revit ribbon. See "Using the StartupScript to modify the RibbonPanel" on how to do this. Note that if you do this, the scripts won't be automatically added to the resulting RpsAddin dll. You can use the `File` tag to add files to the output directory. Use the installer to then bundle them up for installation.
+You could even create an RpsAddin manifest file without any push buttons at all and just use the *StartupScript* to create the user interface on the Revit ribbon. See "Using the StartupScript to modify the RibbonPanel" on how to do this. Note that if you do this, the scripts won't be automatically added to the resulting RpsAddin dll. You can use the `File` tag to add files to the output directory. Use the installer to then bundle them up for installation:
+
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<RpsAddin>
+  <StartupScript src="good_morning_world.py"/>
+  <File src="helloworld.py" />
+</RpsAddin>
+```
+In the example above, the file `helloworld.py` is copied to the output directory. Your startup script (`good_morning_world.py`) then needs to reference this file.
