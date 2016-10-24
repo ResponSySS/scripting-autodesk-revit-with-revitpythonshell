@@ -10,5 +10,7 @@ The search paths will be written to the configuration file (FIXME: link to chapt
 
 The paths configured in the *Search Paths* tab are added to `sys.path` whenever an interactive shell is opened or an external script is executed.
 
+**NOTE**: The directory an external script resides in is automatically added to the search paths when that external script is run from the Ribbon. This makes it easier to split your code into a "library" portion and a "gui" portion and thus have re-usable code in your scripts.
+
 * FIXME: rename the dialog to *Configure* or *Preferences*
 * FIXME: rename the *Commands* tab to *external scripts* (or come up with a better name...)
