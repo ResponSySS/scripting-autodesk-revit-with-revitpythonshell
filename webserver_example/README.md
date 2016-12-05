@@ -101,6 +101,8 @@ class RpsEventHandler(IExternalEventHandler):
             output.Write(buffer, 0, buffer.Length)
             output.Close()
 
+    def GetName(self):
+        return 'RpsHttpServer'
 ```
 
 The `Execute` method here does the grunt work of working with the .NET libraries and delegating requests to the specific handlers. You can extend this class can by adding new handlers to it. In fact, you don't even need to extend the class to add handlers - just register them in the `handlers` dictionary.
