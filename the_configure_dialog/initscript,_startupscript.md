@@ -2,7 +2,7 @@
 
 The *InitScript / StartupScript* tab lets you choose the *InitScript* and *StartupScript*. 
 
-![The Init Script Tab](https://dl.dropboxusercontent.com/u/8112069/scripting-autodesk-revit-with-revitpythonshell/initScript-startupScript.png)
+![The Init Script Tab](initScript-startupScript.png)
 
 ## InitScript
 
