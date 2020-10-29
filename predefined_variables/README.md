@@ -23,8 +23,8 @@ Depending on the contents of your *InitScript*, when you open an interactive she
 
 - the contents of the namespaces `Autodesk.Revit.DB`, `Autodesk.Revit.DB.Architecture`, `Autodesk.Revit.DB.Analysis`
 - `uidoc`: an alias for `__revit__.ActiveUIDocument`
-- `doc`: an alias for `__revit__.ActiveUIDocument.Document
-- `selection`: an alias for `list(__revit__.ActiveUIDocument.Selection.Elements)
+- `doc`: an alias for `__revit__.ActiveUIDocument.Document`
+- `selection`: an alias for `list(__revit__.ActiveUIDocument.Selection.Elements)`
 - `TaskDialog` (the class)
 - `UIApplication` (the class)
 - `alert(msg)`: shortcut for `TaskDialog.Show(...)`
