@@ -21,7 +21,7 @@ A script that is invoked as a *StartupScript* (when Revit is starting up) has ac
 
 Depending on the contents of your *InitScript*, when you open an interactive shell, you will find other variables predefined too. The default *InitScript* contains these values:
 
-- the contents of the namespaces `Autodesk.Revit.DB`, `Autodesk.Revit.DB.Architecture`, `Autodesk.Revit.DB.Analysis``
+- the contents of the namespaces `Autodesk.Revit.DB`, `Autodesk.Revit.DB.Architecture`, `Autodesk.Revit.DB.Analysis`
 - `uidoc`: an alias for `__revit__.ActiveUIDocument`
 - `doc`: an alias for `__revit__.ActiveUIDocument.Document
 - `selection`: an alias for `list(__revit__.ActiveUIDocument.Selection.Elements)
